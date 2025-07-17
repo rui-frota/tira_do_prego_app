@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 28
+    // Lê a chave do Google Maps do local.properties
+    def googleMapsApiKey = project.hasProperty('googleMapsApiKey') ? project.googleMapsApiKey : "YOUR_API_KEY_HERE"
     defaultConfig {
         applicationId "com.example.cityguide"
         minSdkVersion 16
@@ -13,6 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        resValue "string", "google_maps_key", googleMapsApiKey
     }
     buildTypes {
         release {
